@@ -193,11 +193,12 @@ def scrape_forecasts(urls_filename, url_list):
     print('Saving forecasts...\n')
     #save_data(forecasts)
 
+    img_dir = 'weather_diagrams/'
     weather_types = ["clear","cloudy","some clouds","mod. rain", "light rain", "heavy rain","rain shwrs","mod. snow","heavy snow","light snow","snow shwrs","risk tstorm"]
 
     img=[] #this holds the list of images
     for i, weather in enumerate(weather_types): #loop over types of weather
-        img.append(tk.PhotoImage(file=weather+".ppm")) #add the image to the list
+        img.append(tk.PhotoImage(file=img_dir+weather+".ppm")) #add the image to the list
         img[i] = img[i].subsample(5) #shrink the image
 
     img_dict=dict(zip(weather_types, img)) #create the dictionary with names of weather and images
